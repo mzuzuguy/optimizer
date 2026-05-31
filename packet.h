@@ -3,7 +3,7 @@
 
 using namespace std;
 
-struct packet
+struct Packet
 {
         string packetId;
         long long timestamp;

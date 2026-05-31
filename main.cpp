@@ -1,3 +1,5 @@
+#include "packet.h"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -8,22 +10,13 @@
 
 using namespace std;
 
-// Structure representing a single network data packet
-struct Packet {
-    string packetId;
-    long long timestamp;
-    string serviceType;
-    int priority;
-    string payload;
-};
-
 // Function to parse the CSV-style log file
-std::vector<Packet> loadNetworkLogs(const string& filename) {
+std::vector<Packet> loadNetworkLogs(const string& network_logs) {
     vector<Packet> packets;
-    ifstream file(filename);
+    ifstream file(network_logs);
 
     if (!file.is_open()) {
-        cerr << "Error: Could not open file " << filename << endl;
+        cerr << "Error: Could not open file " << network_logs << endl;
         return packets;
     }
 
